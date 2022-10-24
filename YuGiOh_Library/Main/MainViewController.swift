@@ -25,27 +25,42 @@ final class MainViewController: UIViewController {
         view = MainView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.contenView.tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
+        apiReload()
         setupView()
-   
-        ApiClient.shared.getCards { eachCardLocal in
-            self.eachCardLocal = eachCardLocal
-            DispatchQueue.main.async {
-                self.contenView.tableView.reloadData()
-            }
-        }
+        setupBindings()
     }
 
     //MARK: - Setup
     
     func setupView() {
-        title = "Main Screen"
+        title = "YGO Library"
+        contenView.nameTextField.delegate = self
         contenView.tableView.dataSource = self
        contenView.tableView.delegate = self
         contenView.tableView.register(MainViewCell.self, forCellReuseIdentifier: MainViewCell.identifier)
+    }
+    
+    func setupBindings() {
+        let action = UIAction { _ in
+            self.apiReload()
+        }
+        contenView.allCardsButton.addAction(action, for: .touchUpInside)
+    }
+    
+    func apiReload() {
+        ApiClient.shared.allData { eachCardLocal in
+            self.eachCardLocal = eachCardLocal
+            DispatchQueue.main.async {
+                self.contenView.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -65,17 +80,44 @@ extension MainViewController: UITableViewDataSource {
         
         return cell
     }
-    
 }
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       
         self.localCard = self.eachCardLocal[indexPath.row]
-
         let selected = SelectedCardViewController()
         selected.selectedCard = self.localCard
         self.navigationController?.pushViewController(selected, animated: true)
     }
 }
 
+extension MainViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        contenView.nameTextField.resignFirstResponder()
+        return true
+    }
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        if textField.text!.count > 3 {
+            fetchCard(for: textField.text ?? "" )
+            self.contenView.tableView.reloadData()
+        } else {
+            apiReload()
+        }
+        return true
+    }
+    
+    func fetchCard(for query: String) {
+        var tab: [Card] = []
+        for cards in eachCardLocal {
+            if cards.name.contains("\(query)") {
+                tab.append(cards)
+            }
+        }
+        self.eachCardLocal = tab
+    }
+    
+}

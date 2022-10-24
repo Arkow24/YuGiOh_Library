@@ -58,6 +58,33 @@
 			path = SelectedCard;
 			sourceTree = "<group>";
 		};
+		6CE285992907396600B93AAB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6CF74BAA2901E61000E34C0F /* Assets.xcassets */,
+				6CF74BAC2901E61000E34C0F /* LaunchScreen.storyboard */,
+				6CF74BAF2901E61000E34C0F /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6CE2859A290739E100B93AAB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6CF74BBE2901E87F00E34C0F /* Card.swift */,
+				6CF74BB82901E69A00E34C0F /* BaseView.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6CE2859B29073A0100B93AAB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6CF74BBC2901E87100E34C0F /* ApiClient.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		6CF74B952901E60D00E34C0F = {
 			isa = PBXGroup;
 			children = (
@@ -77,15 +104,12 @@
 		6CF74BA02901E60D00E34C0F /* YuGiOh_Library */ = {
 			isa = PBXGroup;
 			children = (
+				6CE2859B29073A0100B93AAB /* Utils */,
+				6CE2859A290739E100B93AAB /* Models */,
+				6CE285992907396600B93AAB /* Resources */,
 				6CE2858C2905F8B600B93AAB /* SelectedCard */,
 				6CF74BB52901E68100E34C0F /* Main */,
 				6CF74BA12901E60D00E34C0F /* AppDelegate.swift */,
-				6CF74BAA2901E61000E34C0F /* Assets.xcassets */,
-				6CF74BAC2901E61000E34C0F /* LaunchScreen.storyboard */,
-				6CF74BAF2901E61000E34C0F /* Info.plist */,
-				6CF74BB82901E69A00E34C0F /* BaseView.swift */,
-				6CF74BBC2901E87100E34C0F /* ApiClient.swift */,
-				6CF74BBE2901E87F00E34C0F /* Card.swift */,
 			);
 			path = YuGiOh_Library;
 			sourceTree = "<group>";
@@ -325,7 +349,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MM9K397P2T;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YuGiOh_Library/Info.plist;
+				INFOPLIST_FILE = YuGiOh_Library/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -352,7 +376,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MM9K397P2T;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YuGiOh_Library/Info.plist;
+				INFOPLIST_FILE = YuGiOh_Library/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

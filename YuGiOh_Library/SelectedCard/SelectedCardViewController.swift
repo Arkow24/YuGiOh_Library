@@ -16,7 +16,7 @@ final class SelectedCardViewController: UIViewController {
     }
     
     var selectedCard: Card?
-    
+
     //MARK: - Lifecycle
     
     override func loadView() {
@@ -33,7 +33,7 @@ final class SelectedCardViewController: UIViewController {
     //MARK: - Setup
     
     func setupView() {
-        title = "Selected Panel"
+        title = "Card View"
     }
     
     func setupBindings() {
@@ -43,5 +43,21 @@ final class SelectedCardViewController: UIViewController {
         contentView.imageCard.af.setImage(withURL: selectedCard.cardImages[0].imageURL)
         contentView.typeLabel.text = selectedCard.type
         contentView.descLabel.text = selectedCard.desc
+        changeBackground(for: selectedCard.type)
+    }
+}
+
+extension SelectedCardViewController {
+    func changeBackground(for type: String) {
+
+        switch type {
+        case "Spell Card": return contentView.backgroundColor = .systemGreen
+        case "Trap Card": return contentView.backgroundColor = .systemPink
+        case "Ritual Effect Monster": return contentView.backgroundColor = .systemCyan
+        case "Fusion Monster": return contentView.backgroundColor = .systemPurple
+        case "Effect Monster": return contentView.backgroundColor = .systemBrown
+        case "Synchro Monster": return contentView.backgroundColor = .systemGray
+        default: return contentView.backgroundColor = .white
+        }
     }
 }

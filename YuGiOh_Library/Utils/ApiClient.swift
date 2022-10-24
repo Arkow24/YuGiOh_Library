@@ -17,8 +17,9 @@ final class ApiClient {
     
     //MARK: - Methods
     
-    func getCards(completion: @escaping ([Card]) -> Void ) {
-        guard let url = URL(string: baseURL + EndURL.blueEyesModel.path) else {return}
+    func allData(completion: @escaping ([Card]) -> Void ) {
+      
+        guard let url = URL(string: baseURL + EndURL.cardList.path) else {return}
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
@@ -32,7 +33,7 @@ final class ApiClient {
         }
         task.resume()
     }
-   
+
 }
 
     //MARK: - Extensions
@@ -45,23 +46,23 @@ extension ApiClient {
     enum EndURL {
         case cardList
         case blueEyesModel
-        
+        case eachCard
         
         var path: String {
             switch self {
             case .cardList: return "/cardinfo.php"
             case .blueEyesModel: return "/cardinfo.php?archetype=Blue-Eyes"
+            case .eachCard: return "/cardinfo.php?name="
             }
-            
         }
         
         var url: String {
             switch self {
             case .cardList: return "\(ApiClient.Constants.baseURL)\(path)"
             case .blueEyesModel: return "\(ApiClient.Constants.baseURL)\(path)"
+            case .eachCard: return "\(ApiClient.Constants.baseURL)\(path)"
             }
         }
-
     }
  
 }
