@@ -24,7 +24,7 @@ final class SelectedCardView: BaseView {
     let typeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 15)
+        label.font = .systemFont(ofSize: 20)
         label.textColor = .black
         return label
     }()
@@ -34,6 +34,7 @@ final class SelectedCardView: BaseView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 15)
         label.textColor = .black
+        label.numberOfLines = 0
         return label
     }()
     
@@ -47,12 +48,7 @@ final class SelectedCardView: BaseView {
     
     
     //MARK: - Setup
-    
-    override func setupView() {
-        backgroundColor = .white
         
-    }
-    
     override func setupSubviews() {
         [nameLabel,typeLabel,descLabel,imageCard].forEach(addSubview)
     }
@@ -60,20 +56,19 @@ final class SelectedCardView: BaseView {
     override func setupConstraints() {
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             imageCard.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: -30),
             imageCard.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
             imageCard.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
             typeLabel.topAnchor.constraint(equalTo: imageCard.bottomAnchor),
-            typeLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            typeLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            typeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            typeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             descLabel.topAnchor.constraint(equalTo: typeLabel.bottomAnchor),
-            descLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            descLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            descLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            descLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             descLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50)
         ])
-        
     }
     
 }

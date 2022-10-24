@@ -66,7 +66,8 @@ final class MainViewCell: UITableViewCell {
             cardNameLabel.leadingAnchor.constraint(equalTo: imageCard.trailingAnchor, constant: 20),
             cardNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             cardNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            cardNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
+            cardNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            cardNameLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }
