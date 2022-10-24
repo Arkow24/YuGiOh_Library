@@ -7,23 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6CE285892905EDA200B93AAB /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6CE285882905EDA200B93AAB /* AlamofireImage */; };
+		6CE2858E2905F8D000B93AAB /* SelectedCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE2858D2905F8D000B93AAB /* SelectedCardViewController.swift */; };
+		6CE285902905F90500B93AAB /* SelectedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE2858F2905F90500B93AAB /* SelectedCardView.swift */; };
 		6CF74BA22901E60D00E34C0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF74BA12901E60D00E34C0F /* AppDelegate.swift */; };
-		6CF74BA42901E60D00E34C0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF74BA32901E60D00E34C0F /* SceneDelegate.swift */; };
-		6CF74BA62901E60D00E34C0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF74BA52901E60D00E34C0F /* ViewController.swift */; };
-		6CF74BA92901E60D00E34C0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CF74BA72901E60D00E34C0F /* Main.storyboard */; };
+		6CF74BA62901E60D00E34C0F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF74BA52901E60D00E34C0F /* MainViewController.swift */; };
 		6CF74BAB2901E61000E34C0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CF74BAA2901E61000E34C0F /* Assets.xcassets */; };
 		6CF74BAE2901E61000E34C0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CF74BAC2901E61000E34C0F /* LaunchScreen.storyboard */; };
+		6CF74BB72901E68F00E34C0F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF74BB62901E68F00E34C0F /* MainView.swift */; };
+		6CF74BB92901E69A00E34C0F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF74BB82901E69A00E34C0F /* BaseView.swift */; };
+		6CF74BBB2901E7AA00E34C0F /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF74BBA2901E7AA00E34C0F /* MainViewCell.swift */; };
+		6CF74BBD2901E87100E34C0F /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF74BBC2901E87100E34C0F /* ApiClient.swift */; };
+		6CF74BBF2901E87F00E34C0F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF74BBE2901E87F00E34C0F /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6CE2858D2905F8D000B93AAB /* SelectedCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCardViewController.swift; sourceTree = "<group>"; };
+		6CE2858F2905F90500B93AAB /* SelectedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCardView.swift; sourceTree = "<group>"; };
 		6CF74B9E2901E60D00E34C0F /* YuGiOh_Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YuGiOh_Library.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CF74BA12901E60D00E34C0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6CF74BA32901E60D00E34C0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6CF74BA52901E60D00E34C0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6CF74BA82901E60D00E34C0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6CF74BA52901E60D00E34C0F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6CF74BAA2901E61000E34C0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CF74BAD2901E61000E34C0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6CF74BAF2901E61000E34C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CF74BB62901E68F00E34C0F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		6CF74BB82901E69A00E34C0F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		6CF74BBA2901E7AA00E34C0F /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
+		6CF74BBC2901E87100E34C0F /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		6CF74BBE2901E87F00E34C0F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +42,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CE285892905EDA200B93AAB /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6CE2858C2905F8B600B93AAB /* SelectedCard */ = {
+			isa = PBXGroup;
+			children = (
+				6CE2858D2905F8D000B93AAB /* SelectedCardViewController.swift */,
+				6CE2858F2905F90500B93AAB /* SelectedCardView.swift */,
+			);
+			path = SelectedCard;
+			sourceTree = "<group>";
+		};
 		6CF74B952901E60D00E34C0F = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +77,27 @@
 		6CF74BA02901E60D00E34C0F /* YuGiOh_Library */ = {
 			isa = PBXGroup;
 			children = (
+				6CE2858C2905F8B600B93AAB /* SelectedCard */,
+				6CF74BB52901E68100E34C0F /* Main */,
 				6CF74BA12901E60D00E34C0F /* AppDelegate.swift */,
-				6CF74BA32901E60D00E34C0F /* SceneDelegate.swift */,
-				6CF74BA52901E60D00E34C0F /* ViewController.swift */,
-				6CF74BA72901E60D00E34C0F /* Main.storyboard */,
 				6CF74BAA2901E61000E34C0F /* Assets.xcassets */,
 				6CF74BAC2901E61000E34C0F /* LaunchScreen.storyboard */,
 				6CF74BAF2901E61000E34C0F /* Info.plist */,
+				6CF74BB82901E69A00E34C0F /* BaseView.swift */,
+				6CF74BBC2901E87100E34C0F /* ApiClient.swift */,
+				6CF74BBE2901E87F00E34C0F /* Card.swift */,
 			);
 			path = YuGiOh_Library;
+			sourceTree = "<group>";
+		};
+		6CF74BB52901E68100E34C0F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6CF74BA52901E60D00E34C0F /* MainViewController.swift */,
+				6CF74BB62901E68F00E34C0F /* MainView.swift */,
+				6CF74BBA2901E7AA00E34C0F /* MainViewCell.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +116,9 @@
 			dependencies = (
 			);
 			name = YuGiOh_Library;
+			packageProductDependencies = (
+				6CE285882905EDA200B93AAB /* AlamofireImage */,
+			);
 			productName = YuGiOh_Library;
 			productReference = 6CF74B9E2901E60D00E34C0F /* YuGiOh_Library.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +147,9 @@
 				Base,
 			);
 			mainGroup = 6CF74B952901E60D00E34C0F;
+			packageReferences = (
+				6CE285872905EDA200B93AAB /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+			);
 			productRefGroup = 6CF74B9F2901E60D00E34C0F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +166,6 @@
 			files = (
 				6CF74BAE2901E61000E34C0F /* LaunchScreen.storyboard in Resources */,
 				6CF74BAB2901E61000E34C0F /* Assets.xcassets in Resources */,
-				6CF74BA92901E60D00E34C0F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +176,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CF74BA62901E60D00E34C0F /* ViewController.swift in Sources */,
+				6CF74BBB2901E7AA00E34C0F /* MainViewCell.swift in Sources */,
+				6CF74BA62901E60D00E34C0F /* MainViewController.swift in Sources */,
+				6CF74BBF2901E87F00E34C0F /* Card.swift in Sources */,
+				6CF74BB72901E68F00E34C0F /* MainView.swift in Sources */,
 				6CF74BA22901E60D00E34C0F /* AppDelegate.swift in Sources */,
-				6CF74BA42901E60D00E34C0F /* SceneDelegate.swift in Sources */,
+				6CE2858E2905F8D000B93AAB /* SelectedCardViewController.swift in Sources */,
+				6CF74BB92901E69A00E34C0F /* BaseView.swift in Sources */,
+				6CF74BBD2901E87100E34C0F /* ApiClient.swift in Sources */,
+				6CE285902905F90500B93AAB /* SelectedCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6CF74BA72901E60D00E34C0F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6CF74BA82901E60D00E34C0F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6CF74BAC2901E61000E34C0F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +328,6 @@
 				INFOPLIST_FILE = YuGiOh_Library/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +355,6 @@
 				INFOPLIST_FILE = YuGiOh_Library/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -358,6 +392,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6CE285872905EDA200B93AAB /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6CE285882905EDA200B93AAB /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CE285872905EDA200B93AAB /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6CF74B962901E60D00E34C0F /* Project object */;
 }
