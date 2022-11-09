@@ -7,7 +7,17 @@
 
 import Foundation
 
-struct Card: Codable {
+struct Card:  Codable, Hashable {
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: Card, rhs: Card) -> Bool {
+                return lhs.id == rhs.id
+    }
+    
+  
     let id: Int
     let name: String
     let type: String
@@ -37,9 +47,12 @@ struct ImageCard: Codable {
 }
 
 struct BaseCards: Decodable {
-    let base: [Card]
     
+
+    let base: [Card]
+
     enum CodingKeys: String, CodingKey {
         case base = "data"
     }
 }
+

@@ -19,7 +19,7 @@ final class ApiClient {
     
     func allData(completion: @escaping ([Card]) -> Void ) {
       
-        guard let url = URL(string: baseURL + EndURL.cardList.path) else {return}
+        guard let url = URL(string: baseURL + EndURL.blueEyesModel.path) else {return}
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
@@ -33,7 +33,6 @@ final class ApiClient {
         }
         task.resume()
     }
-
 }
 
     //MARK: - Extensions
@@ -66,3 +65,4 @@ extension ApiClient {
     }
  
 }
+
