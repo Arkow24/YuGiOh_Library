@@ -48,6 +48,7 @@ final class MainViewController: UIViewController {
     }
     
     func setupBindings() {
+        //mozna uzyc combine
         let action = UIAction { _ in
             self.apiReload()
         }
@@ -72,6 +73,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MainViewCell.identifier, for: indexPath) as? MainViewCell else {return UITableViewCell()}
+        //jak pobiore dane moge wyslac combine o reload
         
         let item = self.eachCardLocal[indexPath.row]
         
@@ -110,6 +112,9 @@ extension MainViewController: UITextFieldDelegate {
         return true
     }
     
+    
+    // od view modelu
+    
     func fetchCard(for query: String) {
         var tab: [Card] = []
         for cards in eachCardLocal {
@@ -121,3 +126,8 @@ extension MainViewController: UITextFieldDelegate {
     }
     
 }
+
+
+// diffable datasources table view  / collection view
+// 
+
