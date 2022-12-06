@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import AlamofireImage
 
-final class MainViewCell: UITableViewCell {
+final class CardListViewCell: UITableViewCell {
     
     //MARK: - Properties
     

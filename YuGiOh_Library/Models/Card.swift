@@ -12,12 +12,7 @@ struct Card:  Codable, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    static func == (lhs: Card, rhs: Card) -> Bool {
-                return lhs.id == rhs.id
-    }
-    
-  
+
     let id: Int
     let name: String
     let type: String
@@ -33,7 +28,7 @@ struct Card:  Codable, Hashable {
     }
 }
 
-struct ImageCard: Codable {
+struct ImageCard: Codable, Hashable {
     
     let id: Int
     let imageURL: URL
@@ -47,12 +42,7 @@ struct ImageCard: Codable {
 }
 
 struct BaseCards: Decodable {
-    
 
-    let base: [Card]
-
-    enum CodingKeys: String, CodingKey {
-        case base = "data"
-    }
+    let data: [Card]
 }
 

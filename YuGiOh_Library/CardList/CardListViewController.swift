@@ -10,22 +10,21 @@ import UIKit
 import AlamofireImage
 import Combine
 
-
-final class MainViewController: UIViewController {
+final class CardListViewController: UIViewController {
     
     //MARK: - Properties
     
-    let viewModel: MainViewModelType
+    let viewModel: CardListViewModelType
     var cancellables = [AnyCancellable]()
     private lazy var dataSource = makeDataSource()
     
-    var contenView: MainView {
-        return view as! MainView
+    var contenView: CardListView {
+        return view as! CardListView
     }
     
     //MARK: - Initialization
     
-    init(viewModel: MainViewModelType) {
+    init(viewModel: CardListViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -37,11 +36,7 @@ final class MainViewController: UIViewController {
     //MARK: - Lifecycle
     
     override func loadView() {
-        view = MainView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.contenView.tableView.reloadData()
+        view = CardListView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,45 +49,47 @@ final class MainViewController: UIViewController {
       
         setupView()
         setupBindings()
-        applySnapshot()
     }
 
     //MARK: - Setup
     
     func setupView() {
         title = "YGO Library"
-        contenView.tableView.register(MainViewCell.self, forCellReuseIdentifier: MainViewCell.identifier)
-        contenView.tableView.delegate = self
-        contenView.nameTextField.delegate = self
     }
     
     func setupBindings() {
+        contenView.tableView.register(CardListViewCell.self, forCellReuseIdentifier: CardListViewCell.identifier)
+        contenView.tableView.delegate = self
+        contenView.nameTextField.delegate = self
         
-        let action = UIAction { _ in
-            self.applySnapshot()
-        }
-        contenView.allCardsButton.addAction(action, for: .touchUpInside)
-        
-        viewModel.outputs.reloadTableView
+        viewModel.outputs.filteredCards
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
-                self?.contenView.tableView.reloadData()
-                self?.applySnapshot()
+            .sink { [weak self] cards in
+                var snapshot = NSDiffableDataSourceSnapshot<Section, Card>()
+                snapshot.appendSections([.main])
+                snapshot.appendItems(cards, toSection: .main)
+                self?.dataSource.apply(snapshot)
+            }
+            .store(in: &cancellables)
+
+        viewModel.outputs.selectedCard
+            .receive(on: DispatchQueue.main)
+            .sink { card in
+                let selected = CardDetailsViewController()
+                selected.selectedCard = card
+                self.navigationController?.pushViewController(selected, animated: true)
             }
             .store(in: &cancellables)
     }
 }
 
-extension MainViewController: UITableViewDelegate {
+extension CardListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        let selected = SelectedCardViewController()
-        selected.selectedCard = viewModel.outputs.cards[indexPath.row]
-        self.navigationController?.pushViewController(selected, animated: true)
+        viewModel.inputs.selectCard(for: indexPath.row)
     }
 }
 
-extension MainViewController: UITextFieldDelegate {
+extension CardListViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         contenView.nameTextField.resignFirstResponder()
@@ -103,37 +100,31 @@ extension MainViewController: UITextFieldDelegate {
 
         if textField.text!.count > 3 {
             viewModel.inputs.fetchTargerData(for: textField.text ?? "")
-            applySnapshot()
         }
         return true
     }
 }
 
-extension MainViewController {
+extension CardListViewController {
 
     func makeDataSource() -> UITableViewDiffableDataSource<Section, Card> {
         
         let dataSource = UITableViewDiffableDataSource<Section,Card>( tableView: contenView.tableView,
                 cellProvider: { (tableView, indexPath, card) -> UITableViewCell? in
-            let cell = tableView.dequeueReusableCell(withIdentifier: MainViewCell.identifier,
-                                                     for: indexPath) as? MainViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CardListViewCell.identifier,
+                                                     for: indexPath) as? CardListViewCell
 
             cell?.cardNameLabel.text = card.name
-            cell?.imageCard.af.setImage(withURL: card.cardImages[0].imageURLSmall)
+            if !card.cardImages.isEmpty {
+                cell?.imageCard.af.setImage(withURL: card.cardImages[0].imageURLSmall)
+            }
             return cell
         })
         return dataSource
     }
-    
-    func applySnapshot() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Card>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(self.viewModel.outputs.cards, toSection: .main)
-        dataSource.apply(snapshot)
-    }
 }
 
-extension MainViewController {
+extension CardListViewController {
     enum Section: CaseIterable {
         case main
     }
