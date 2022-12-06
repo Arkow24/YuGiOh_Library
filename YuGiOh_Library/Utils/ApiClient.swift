@@ -7,25 +7,28 @@
 
 import Foundation
 
-final class ApiClient {
+protocol ApiClientType: AnyObject {
+    func getCards(completion: @escaping ([Card]) -> Void)
+}
+
+final class ApiClient: ApiClientType {
     
     //MARK: - Properties
     
     private let session: URLSession = .shared
     private let baseURL: String = "https://db.ygoprodeck.com/api/v7"
-    static let shared: ApiClient = .init()
     
     //MARK: - Methods
     
-    func allData(completion: @escaping ([Card]) -> Void ) {
+    func getCards(completion: @escaping ([Card]) -> Void ) {
       
-        guard let url = URL(string: baseURL + EndURL.blueEyesModel.path) else {return}
+        guard let url = URL(string: baseURL + "/cardinfo.php") else {return}
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
                 do {
                     let dataAll = try JSONDecoder().decode(BaseCards.self, from: data)
-                    completion(dataAll.base)
+                    completion(dataAll.data)
                 } catch let error {
                     print(error)
                 }
@@ -34,35 +37,3 @@ final class ApiClient {
         task.resume()
     }
 }
-
-    //MARK: - Extensions
-
-extension ApiClient {
-    enum Constants {
-        static let baseURL: String = "https://db.ygoprodeck.com/api/v7"
-    }
-    
-    enum EndURL {
-        case cardList
-        case blueEyesModel
-        case eachCard
-        
-        var path: String {
-            switch self {
-            case .cardList: return "/cardinfo.php"
-            case .blueEyesModel: return "/cardinfo.php?archetype=Blue-Eyes"
-            case .eachCard: return "/cardinfo.php?name="
-            }
-        }
-        
-        var url: String {
-            switch self {
-            case .cardList: return "\(ApiClient.Constants.baseURL)\(path)"
-            case .blueEyesModel: return "\(ApiClient.Constants.baseURL)\(path)"
-            case .eachCard: return "\(ApiClient.Constants.baseURL)\(path)"
-            }
-        }
-    }
- 
-}
-

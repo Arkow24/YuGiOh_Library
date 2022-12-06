@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 import AlamofireImage
 
-final class SelectedCardViewController: UIViewController {
+final class CardDetailsViewController: UIViewController {
     
-    var contentView: SelectedCardView {
-        return view as! SelectedCardView
+    var contentView: CardDetailsView {
+        return view as! CardDetailsView
     }
     
     var selectedCard: Card?
@@ -20,7 +20,7 @@ final class SelectedCardViewController: UIViewController {
     //MARK: - Lifecycle
     
     override func loadView() {
-        view = SelectedCardView()
+        view = CardDetailsView()
     }
      
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ final class SelectedCardViewController: UIViewController {
     }
 }
 
-extension SelectedCardViewController {
+extension CardDetailsViewController {
     func changeBackground(for type: String) {
 
         switch type {

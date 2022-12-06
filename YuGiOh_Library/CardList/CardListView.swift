@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class MainView: BaseView {
+final class CardListView: BaseView {
    
     //MARK: - Subviews
     
@@ -20,15 +20,6 @@ final class MainView: BaseView {
        return field
     }()
     
-    let allCardsButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemCyan
-        button.setTitle("Refresh data", for: .normal)
-        button.layer.cornerRadius = 10
-        return button
-    }()
-
     let tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -44,9 +35,7 @@ final class MainView: BaseView {
     }
     
     override func setupSubviews() {
-        addSubview(nameTextField)
-        addSubview(allCardsButton)
-        addSubview(tableView)
+        [nameTextField,tableView].forEach(addSubview)
     }
     
     override func setupConstraints() {
@@ -54,15 +43,10 @@ final class MainView: BaseView {
             nameTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             nameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             nameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            allCardsButton.topAnchor.constraint(equalTo: nameTextField.bottomAnchor,constant: 15),
-            allCardsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            allCardsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            tableView.topAnchor.constraint(equalTo: allCardsButton.bottomAnchor, constant: 20),
+            tableView.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 20),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
-    
-    
 }

@@ -16,13 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController(rootViewController: MainViewController(viewModel: MainViewModel()))
+        window?.rootViewController = UINavigationController(
+                rootViewController: CardListViewController(
+                viewModel: CardListViewModel( apiClient: ApiClient())))
         window?.makeKeyAndVisible()
         
         return true
     }
-
-    
-
 }
 

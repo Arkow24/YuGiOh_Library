@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-
-final class SelectedCardView: BaseView {
+final class CardDetailsView: BaseView {
     
     //MARK: - Subviews
     
@@ -38,14 +37,12 @@ final class SelectedCardView: BaseView {
         return label
     }()
     
-    
     let imageCard: UIImageView = {
        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
         return image
     }()
-    
     
     //MARK: - Setup
         
@@ -70,5 +67,4 @@ final class SelectedCardView: BaseView {
             descLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50)
         ])
     }
-    
 }
